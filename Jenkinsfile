@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    IMAGE_NAME = "demo-ci-cd:latest"
+    IMAGE_NAME = "demo-ci-cd"
   }
   stages {
     stage('Checkout') {
@@ -21,8 +21,8 @@ pipeline {
     }
     stage('Run Container') {
       steps {
-        sh 'docker rm -f demo-ci-cd || true'
-        sh 'docker run -d --name demo-ci-cd -p 8080:8080 $IMAGE_NAME'
+        sh 'docker rm -f $IMAGE_NAME || true'
+        sh 'docker run -d --name $IMAGE_NAME -p 8082:8080 $IMAGE_NAME:latest'
       }
     }
   }

@@ -16,7 +16,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8082:8080"
     networks:
       my-virtual-net:
         ipv4_address: 172.25.0.10
