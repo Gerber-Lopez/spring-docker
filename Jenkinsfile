@@ -16,13 +16,13 @@ pipeline {
     }
     stage('Build Docker Image') {
       steps {
-        sh 'docker build -t $IMAGE_NAME .'
+        sh 'sudo docker build -t $IMAGE_NAME .'
       }
     }
     stage('Run Container') {
       steps {
-        sh 'docker rm -f $IMAGE_NAME || true'
-        sh 'docker run -d --name $IMAGE_NAME -p 8082:8080 $IMAGE_NAME:latest'
+        sh 'sudo docker rm -f $IMAGE_NAME || true'
+        sh 'sudo docker run -d --name $IMAGE_NAME -p 8082:8080 $IMAGE_NAME:latest'
       }
     }
   }
